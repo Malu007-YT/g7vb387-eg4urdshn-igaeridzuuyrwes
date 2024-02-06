@@ -1,0 +1,6 @@
+pytz
+discord
+discord.py
+imaplib2
+beautifulsoup4
+flask
