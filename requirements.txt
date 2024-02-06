@@ -1,5 +1,5 @@
 pytz
 discord
 discord.py
-imaplib
+imaplib2
 beautifulsoup4
