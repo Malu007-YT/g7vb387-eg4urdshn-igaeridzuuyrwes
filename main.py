@@ -468,7 +468,7 @@ async def main():
     await asyncio.sleep(10)
 
 
-@bot.slash_command(name="restart", description="Riavvia il bot solo se eseguito dall'utente specifico")
+@bot.add_command(name="restart", description="Riavvia il bot solo se eseguito dall'utente specifico")
 async def slash_restart(interaction: discord.Interaction):
     # Verifica se l'utente che ha eseguito il comando è quello con l'ID specificato
     if interaction.author.id == 898475876029706241:
