@@ -468,6 +468,18 @@ async def main():
     await asyncio.sleep(10)
 
 
+@bot.slash_command(name="restart", description="Riavvia il bot solo se eseguito dall'utente specifico")
+async def slash_restart(interaction: discord.Interaction):
+    # Verifica se l'utente che ha eseguito il comando è quello con l'ID specificato
+    if interaction.author.id == 898475876029706241:
+        await interaction.response.send_message("Riavvio del bot in corso...")
+        await asyncio.sleep(2)
+        await bot.close()
+        subprocess.Popen([sys.executable, "main.py"])
+    else:
+        await interaction.response.send_message("Non hai il permesso per eseguire questo comando!")
+
+
 @bot.event
 async def on_ready():
   print("_____________________________________")
