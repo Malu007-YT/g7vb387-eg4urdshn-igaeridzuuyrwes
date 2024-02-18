@@ -469,7 +469,7 @@ async def main():
 
 
 @bot.command(name='restart', description='Riavvia il bot solo se eseguito dall\'utente specifico')
-async def restart(ctx):
+async def restart_bot(ctx):
     # Verifica se l'utente che ha eseguito il comando è quello con l'ID specificato
     if ctx.author.id == 898475876029706241:
         await ctx.send("Riavvio del bot in corso...")
