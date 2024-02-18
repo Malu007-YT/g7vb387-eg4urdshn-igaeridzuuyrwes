@@ -468,18 +468,6 @@ async def main():
     await asyncio.sleep(10)
 
 
-@bot.command(name='restart', description='Riavvia il bot solo se eseguito dall\'utente specifico')
-async def restart_bot(ctx):
-    # Verifica se l'utente che ha eseguito il comando è quello con l'ID specificato
-    if ctx.author.id == 898475876029706241:
-        await ctx.send("Riavvio del bot in corso...")
-        await asyncio.sleep(2)
-        await bot.close()
-        subprocess.Popen([sys.executable, "main.py"])
-    else:
-        await ctx.send("Non hai il permesso per eseguire questo comando!")
-
-
 @bot.event
 async def on_ready():
   print("_____________________________________")
