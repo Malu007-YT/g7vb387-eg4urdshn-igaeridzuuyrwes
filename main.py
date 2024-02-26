@@ -473,8 +473,8 @@ async def on_ready():
   print("_____________________________________")
   print(f"Il {bot.user} è attivo e pronto!")
 
-  #check_email_loop.start(),
-  #check_activity.start(),
+  check_email_loop.start(),
+  check_activity.start(),
 
   try:
     synced = await bot.tree.sync()
