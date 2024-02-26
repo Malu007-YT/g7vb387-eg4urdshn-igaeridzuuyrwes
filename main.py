@@ -498,8 +498,7 @@ async def on_ready():
 
   await asyncio.gather(*tasks)
 
-  bot.loop.add_signal_handler('SIGINT',
-                              lambda: asyncio.ensure_future(on_shutdown()))
+  bot.loop.add_signal_handler('SIGINT', lambda: asyncio.ensure_future(on_shutdown()))
 
 
 async def restart_bot():
