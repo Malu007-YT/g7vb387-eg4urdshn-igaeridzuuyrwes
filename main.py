@@ -415,21 +415,21 @@ async def login(ctx):
   await restart_bot()
 
 
-@bot.command(name="logout", description="Logout dall'applicazione")
-async def logout(ctx):
+@bot.tree.command(name="logout", description="Logout dall'applicazione")
+async def logout(interaction: discord.Interaction):
   """Logout dell'utente dall'applicazione."""
 
-  credentials_file = f"credentials_{ctx.author.id}.txt"
+  credentials_file = f"credentials_{interaction.user.id}.txt"
 
   if not os.path.isfile(credentials_file):
-    await ctx.send("Non sei loggato.")
+    await interaction.response.send_message("Non sei loggato.")
     return
 
   try:
     os.remove(credentials_file)
-    await ctx.send("Logout effettuato con successo.")
+    await interaction.response.send_message("Logout effettuato con successo.")
   except Exception as e:
-    await ctx.send(f"Si è verificato un errore durante il logout: {str(e)}")
+    await interaction.response.send_message(f"Si è verificato un errore durante il logout: {str(e)}")
 
 
 async def start_bot():
