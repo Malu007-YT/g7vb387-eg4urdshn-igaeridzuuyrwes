@@ -13,8 +13,6 @@ import subprocess
 from email.header import decode_header
 from bs4 import BeautifulSoup
 
-keep_alive()
-
 TOKEN = os.environ.get("BOT_TOKEN")
 
 IMAP_SERVER = "imap.gmail.com"
