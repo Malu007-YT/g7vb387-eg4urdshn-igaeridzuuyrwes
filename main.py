@@ -8,12 +8,11 @@ import os
 import smtplib
 import sys
 from datetime import datetime
-from keep_alive import keep_alive
 import subprocess
 from email.header import decode_header
 from bs4 import BeautifulSoup
 
-TOKEN = os.environ.get("BOT_TOKEN")
+TOKEN = "MTEwNDMxNDMzMTY1MjQ0MDEzNA.Gliqc9.RWM6Z5VQhYTHCA--3hP0Uy5A8iqd9F7bW1xPRc"
 
 IMAP_SERVER = "imap.gmail.com"
 IMAP_PORT = 993
@@ -413,21 +412,21 @@ async def login(ctx):
   await restart_bot()
 
 
-@bot.tree.command(name="logout", description="Logout dall'applicazione")
-async def logout(interaction: discord.Interaction):
+@bot.command(name="logout", description="Logout dall'applicazione")
+async def logout(ctx):
   """Logout dell'utente dall'applicazione."""
 
-  credentials_file = f"credentials_{interaction.user.id}.txt"
+  credentials_file = f"credentials_{ctx.author.id}.txt"
 
   if not os.path.isfile(credentials_file):
-    await interaction.response.send_message("Non sei loggato.")
+    await ctx.send("Non sei loggato.")
     return
 
   try:
     os.remove(credentials_file)
-    await interaction.response.send_message("Logout effettuato con successo.")
+    await ctx.send("Logout effettuato con successo.")
   except Exception as e:
-    await interaction.response.send_message(f"Si è verificato un errore durante il logout: {str(e)}")
+    await ctx.send(f"Si è verificato un errore durante il logout: {str(e)}")
 
 
 async def start_bot():
